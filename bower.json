@@ -1,0 +1,27 @@
+{
+  "name": "js-openctm",
+  "version": "0.0.12",
+  "homepage": "https://github.com/tartavull/js-openctm",
+  "description": "js-openctm is a JavaScript library for reading OpenCTM files.",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "js-openctm"
+  ],
+  "authors": [
+    "Juan Mellado"
+  ],
+  "license": "Copyright (c) 2011 Juan Mellado",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "samples"
+  ],
+  "main": [
+    "src/ctm.js"
+  ]
+}
