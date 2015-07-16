@@ -1,6 +1,6 @@
 {
   "name": "js-openctm",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "homepage": "https://github.com/tartavull/js-openctm",
   "description": "js-openctm is a JavaScript library for reading OpenCTM files.",
   "moduleType": [
@@ -23,6 +23,7 @@
   ],
   "main": [
     "src/ctm.js",
-    "src/libs/lzma.js"
+    "src/lzma.js",
+    "src/CTMLoader.js"
   ]
 }

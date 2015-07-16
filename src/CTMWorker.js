@@ -1,45 +1,19 @@
-importScripts( "libs/lzma.js", "ctm.js");
-
-(function (THREE){
-
+importScripts( "lzma.js", "ctm.js" );
 
 self.onmessage = function( event ) {
 
+	var files = [];
 
-	self.getMesh(event.data.url, function(binaryData) {
+	for ( var i = 0; i < event.data.offsets.length; i ++ ) {
 
-		var stream = new CTM.Stream(binaryData );
-		self.file = new CTM.File( stream );
+		var stream = new CTM.Stream( event.data.data );
+		stream.offset = event.data.offsets[ i ];
 
-		self.postMessage( self.file );
-		self.close();
+		files[ i ] = new CTM.File( stream );
 
-	});
+	}
 
-};
+	self.postMessage( files );
+	self.close();
 
-
-self.getMesh = function ( url , callback ) {
-
-	var xhr = new XMLHttpRequest();
-  xhr.open("GET", url, false);
-  xhr.overrideMimeType("text/plain; charset=x-user-defined");
-  
-  var scope = this;
-  xhr.onload = function (e) { 
-
-    if (xhr.readyState === 4 && xhr.status === 200) {
-
-        if (xhr.responseText.length == 0) {
-          console.error("returned empty mesh file");
-          return;
-        }
-
-      	callback(xhr.responseText);
-    }
-	};
-  xhr.send();
-};
-
-
-})();
+}
